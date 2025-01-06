@@ -1,0 +1,22 @@
+<!-- ! ------------------------------------------------------------------ -->
+<!-- !                           LISTA DE CITAS                           -->
+<!-- ! ------------------------------------------------------------------ -->
+<ion-list>
+
+  <!-- * ---------------- ITEAMOS SOBRE LA LISTA DE CITAS ----------------- -->
+  <ion-item *ngFor="let cita of citas">
+
+    <!-- & Mostramos el contenido de la cita -->
+    <ion-label>
+      <h2>{{ cita.frase }}</h2>
+      <p>{{ cita.autor }}</p>
+    </ion-label>
+
+    <!-- & Ponemos un botoncito para eliminar la cita -->
+    <ion-button *ngIf="puedeEliminar" slot="end" fill="clear" color="danger" (click)="eliminar(cita)">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+
+  </ion-item>
+
+</ion-list>

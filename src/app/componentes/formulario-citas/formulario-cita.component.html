@@ -1,0 +1,52 @@
+<!-- ! ------------------------------------------------------------------ ! -->
+<!-- !                    FORMULARIO PARA NUEVAS CITAS                    ! -->
+<!-- ! ------------------------------------------------------------------ ! -->
+<form [formGroup]="citaForm" novalidate>
+
+  <!-- * ----------------------- CAMPO DE LA FRASE ------------------------ -->
+  <ion-item>
+
+    <!-- & Label -->
+    <ion-label position="stacked">Frase</ion-label>
+
+    <!-- & Campo para escribir -->
+    <ion-input formControlName="frase" placeholder="Escriba la frase"></ion-input>
+
+    <!-- & Si el usuario no escribe nada -->
+    <ion-note *ngIf="fraseControl?.hasError('required') && fraseControl?.touched" color="danger">
+      La frase es obligatoria.
+    </ion-note>
+
+    <!-- & Si la cita es demasiado corta (Menos de 5 caracteres) -->
+    <ion-note *ngIf="fraseControl?.hasError('minlength') && fraseControl?.touched" color="danger">
+      La frase debe tener al menos 5 caracteres.
+    </ion-note>
+
+  </ion-item>
+
+  <!-- * ------------------------ CAMPO DEL AUTOR ------------------------- -->
+  <ion-item>
+
+    <!-- & Label -->
+    <ion-label position="stacked">Autor</ion-label>
+
+    <!-- & Campo para escribir -->
+    <ion-input formControlName="autor" placeholder="Nombre del autor"></ion-input>
+
+    <!-- & Si el usuario no escribe nada -->
+    <ion-note *ngIf="autorControl?.hasError('required') && autorControl?.touched" color="danger">
+      El autor es obligatorio.
+    </ion-note>
+
+    <!-- & Si el autor es demasiado corto (Menos de 2 caracteres) -->
+    <ion-note *ngIf="autorControl?.hasError('minlength') && autorControl?.touched" color="danger">
+      El autor debe tener al menos 2 caracteres.
+    </ion-note>
+
+  </ion-item>
+
+  <!-- * ----------------------- BOTÓN PARA AGREGAR ----------------------- -->
+  <ion-button expand="block" (click)="agregar()" [disabled]="citaForm.invalid">
+    Agregar
+  </ion-button>
+</form>

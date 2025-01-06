@@ -1,0 +1,25 @@
+{
+    "database": "data.db",
+    "version": 1,
+    "encrypted": false,
+    "mode": "full",
+    "tables": [
+        {
+            "name": "citas",
+            "schema": [
+                {
+                    "column": "id",
+                    "value": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT"
+                },
+                {
+                    "column": "frase",
+                    "value": "TEXT NOT NULL"
+                },
+                {
+                    "column": "autor",
+                    "value": "TEXT NOT NULL"
+                }
+            ]
+        }
+    ]
+}

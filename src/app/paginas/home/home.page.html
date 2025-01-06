@@ -1,0 +1,40 @@
+<!-- ! ------------------------------------------------------------------ -->
+<!-- !                             HOME PAGE                              -->
+<!-- ! ------------------------------------------------------------------ -->
+
+<!-- * ----------------------------- HEADER ----------------------------- -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Citas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/configuracion']">
+        <ion-icon name="settings-outline"></ion-icon> <!-- Icono de configuración -->
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- * --------------------------- CONTENIDO ---------------------------- -->
+<ion-content>
+
+  <!-- & Si tenemos cita -->
+  <div class="quote-container" *ngIf="cita != null">
+    <p class="quote-text">{{ cita.frase }}</p>
+    <p class="quote-author">- {{ cita.autor }}</p>
+  </div>
+
+  <!-- & En caso de que no tengamos ninguna cita -->
+  <div class="quote-container" *ngIf="cita == null">
+    <h2 style="color: black;">
+      No existen citas para mostrar, por favor agregue una.
+    </h2>
+  </div>
+
+  <!-- & Botoncito para agregar citas -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/gestionar-citas']">
+      <ion-icon name="add-outline"></ion-icon> <!-- Icono del botón flotante -->
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

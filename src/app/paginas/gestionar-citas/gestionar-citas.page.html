@@ -1,0 +1,25 @@
+<!-- ! ------------------------------------------------------------------ -->
+<!-- !                          GESTIÓN DE CITAS                          -->
+<!-- ! ------------------------------------------------------------------ -->
+<!-- * ----------------------------- HEADER ----------------------------- -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestión de citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- * --------------------------- CONTENIDO ---------------------------- -->
+<ion-content>
+
+  <!-- & ------------------- COMPONENTE DEL FORMULARIO -------------------- -->
+  <app-formulario-cita (onAgregarCita)="agregarCita($event)"></app-formulario-cita>
+
+  <br>
+
+  <!-- & ---------------- COMPONENTE DE LA LISTA DE CITAS ----------------- -->
+  <app-lista-citas [citas]="citas" (onEliminarCita)="eliminarCita($event)"></app-lista-citas>
+
+</ion-content>
