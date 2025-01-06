@@ -67,10 +67,11 @@ export class HomePage implements OnInit {
       this.isWeb = info.platform == 'web';
 
       this.sqlService.inicializarBaseDatos();
-      this.sqlService.dbReady.subscribe(load => {
+      this.sqlService.dbReady.subscribe(async (load) => {
+        if (load) {
+          await this.buscarCitaRandom();
+        }
         this.load = load;
-        this.buscarCitaRandom();
-
       })
     })
   }
